@@ -23,7 +23,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define USE_MATRIX_I2C
 
 //#define QUICK_TAP_TERM 0
+
+#define SMTD_GLOBAL_TAP_TERM 200 //(default is TAPPING_TERM) which is 200
+#define SMTD_GLOBAL_FOLLOWING_TAP_TERM 200 //(default is TAPPING_TERM)
+#define SMTD_GLOBAL_SEQUENCE_TERM 100 //(default is TAPPING_TERM / 2)
+#define SMTD_GLOBAL_RELEASE_TERM 40 //(default is TAPPING_TERM / 4)
+
 //#define TAPPING_TERM 100
+// to adjust timings for the home row mods refer to this doc:
+// https://github.com/stasmarkin/sm_td/blob/main/docs/070_customization_timeouts.md
+//Main advices for tweaking timeouts:
+//
+//if you have a weak finger, that gets stuck on a key press, so it counts as being held, try to increase SMTD_TIMEOUT_TAP.
+//if you notice, that in quick typing you sometimes get false hold interpretations, try to decrease SMTD_TIMEOUT_RELEASE.
+//if you don't have enough time to make a tap sequence and it resets too early, try to increase SMTD_TIMEOUT_SEQUENCE
+
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 #define MAX_DEFERRED_EXECUTORS 10
