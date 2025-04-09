@@ -167,7 +167,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [U_FUN] = LAYOUT_split_3x6_3_ex2(
    KC_ESC, KC_F12, KC_F7, KC_F8,  KC_F9, KC_PSCR, QK_LOCK, QK_LOCK, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA), TD(U_TD_U_BASE),   KC_NO, KC_BSPC,
-   KC_TAB, KC_F11, KC_F4, KC_F5,  KC_F6, KC_SCRL, QK_LLCK, QK_LLCK,         CKC_N,          CKC_E,            CKC_I,           CKC_O,   KC_NO, KC_QUOT,
+  KC_CAPS, KC_F11, KC_F4, KC_F5,  KC_F6, KC_SCRL, QK_LLCK, QK_LLCK,         CKC_N,          CKC_E,            CKC_I,           CKC_O,   KC_NO, KC_QUOT,
 //   KC_TAB, KC_F11, KC_F4, KC_F5,  KC_F6, KC_SCRL, QK_LLCK, QK_LLCK,  LGUI_T(KC_A),   LALT_T(KC_R),     LCTL_T(KC_S),    LSFT_T(KC_T),   KC_NO, KC_QUOT,
   KC_LSFT, KC_F10, KC_F1, KC_F2,  KC_F3, KC_PAUS,                           KC_NO,        KC_ALGR,   TD(U_TD_U_FUN),  TD(U_TD_U_SYM),   KC_NO, KC_RSFT,
                                  KC_APP,  KC_SPC,  KC_TAB,   KC_NO,         KC_NO,          KC_NO
@@ -282,104 +282,3 @@ bool oled_task_user() {
 }
 
 #endif
-
-
-
-
-//enum layers {
-//    U_BASE,
-//    U_NUM,
-//    U_NAV,
-//    U_FUN,
-//    U_SYM,
-//    U_MOUSE,
-//    U_MEDIA,
-//    U_BUTTON,
-//    U_TAP,
-//    U_EXTRA
-//};
-//
-//enum {
-//    U_TD_U_BASE,
-//    U_TD_U_NUM,
-//    U_TD_U_NAV,
-//    U_TD_U_TAP,
-//    U_TD_U_EXTRA,
-//    U_TD_U_SYM,
-//    U_TD_U_MOUSE,
-//    U_TD_U_FUN,
-//    U_TD_U_MEDIA,
-//    U_TD_BOOT
-//};
-//
-//void u_td_fn_u_base(tap_dance_state_t *state, void *user_data) {
-//    if (state->count == 2) {
-//      default_layer_set((layer_state_t)1 << U_BASE);
-//    }
-//};
-//
-//void u_td_fn_u_num(tap_dance_state_t *state, void *user_data) {
-//    if (state->count == 2) {
-//      default_layer_set((layer_state_t)1 << U_NUM);
-//    }
-//};
-//
-//void u_td_fn_u_nav(tap_dance_state_t *state, void *user_data) {
-//    if (state->count == 2) {
-//      default_layer_set((layer_state_t)1 << U_NAV);
-//    }
-//};
-//
-//void u_td_fn_u_tap(tap_dance_state_t *state, void *user_data) {
-//    if (state->count == 2) {
-//      default_layer_set((layer_state_t)1 << U_TAP);
-//    }
-//};
-//
-//void u_td_fn_u_extra(tap_dance_state_t *state, void *user_data) {
-//    if (state->count == 2) {
-//      default_layer_set((layer_state_t)1 << U_EXTRA);
-//    }
-//};
-//
-//void u_td_fn_u_sym(tap_dance_state_t *state, void *user_data) {
-//  if (state->count == 2) {
-//    default_layer_set((layer_state_t)1 << U_SYM);
-//  }
-//};
-//void u_td_fn_u_mouse(tap_dance_state_t *state, void *user_data) {
-//  if (state->count == 2) {
-//    default_layer_set((layer_state_t)1 << U_MOUSE);
-//  }
-//};
-//
-//void u_td_fn_u_fun(tap_dance_state_t *state, void *user_data) {
-//  if (state->count == 2) {
-//    default_layer_set((layer_state_t)1 << U_FUN);
-//  }
-//};
-//
-//void u_td_fn_u_media(tap_dance_state_t *state, void *user_data) {
-//  if (state->count == 2) {
-//    default_layer_set((layer_state_t)1 << U_MEDIA);
-//  }
-//};
-//
-//void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
-//    if (state->count == 2) {
-//      reset_keyboard();
-//    }
-//};
-//
-//tap_dance_action_t tap_dance_actions[] = {
-//    [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
-//    [U_TD_U_BASE] = ACTION_TAP_DANCE_FN(u_td_fn_u_base),
-//    [U_TD_U_NUM] = ACTION_TAP_DANCE_FN(u_td_fn_u_num),
-//    [U_TD_U_NAV] = ACTION_TAP_DANCE_FN(u_td_fn_u_nav),
-//    [U_TD_U_TAP] = ACTION_TAP_DANCE_FN(u_td_fn_u_tap),
-//    [U_TD_U_EXTRA] = ACTION_TAP_DANCE_FN(u_td_fn_u_extra),
-//    [U_TD_U_SYM] = ACTION_TAP_DANCE_FN(u_td_fn_u_sym),
-//    [U_TD_U_MOUSE] = ACTION_TAP_DANCE_FN(u_td_fn_u_mouse),
-//    [U_TD_U_FUN] = ACTION_TAP_DANCE_FN(u_td_fn_u_fun),
-//    [U_TD_U_MEDIA] = ACTION_TAP_DANCE_FN(u_td_fn_u_media),
-//};
