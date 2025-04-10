@@ -238,6 +238,92 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ), 
 };
 
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+  for (uint8_t i = led_min; i < led_max; i++) {
+    uint8_t layer = get_highest_layer(layer_state|default_layer_state);
+    switch(layer) {
+        case U_EXTRA:
+          rgb_matrix_set_color(i, RGB_GREEN);
+          break;
+        case U_DVORAK:
+          rgb_matrix_set_color(i, RGB_BLUE);
+          break;
+        case U_SYM:
+          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+              for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+                  uint8_t index = g_led_config.matrix_co[row][col];
+              
+                  if (index >= led_min && index < led_max && index != NO_LED &&
+                  keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+                    rgb_matrix_set_color(index, RGB_GOLDENROD);
+                  }
+                  else if (index >= led_min && index < led_max && index != NO_LED &&
+                    keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
+                    rgb_matrix_set_color(index, RGB_BLACK);
+                  }
+              }
+          }        
+          break;             
+        case U_NUM:
+          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+              for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+                  uint8_t index = g_led_config.matrix_co[row][col];
+              
+                  if (index >= led_min && index < led_max && index != NO_LED &&
+                  keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+                      rgb_matrix_set_color(index, RGB_SPRINGGREEN);
+                  }
+                  else if (index >= led_min && index < led_max && index != NO_LED &&
+                    keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
+                    rgb_matrix_set_color(index, RGB_BLACK);
+                  }               
+              }
+          }     
+          break;        
+        case U_NAV: 
+          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+              for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+                  uint8_t index = g_led_config.matrix_co[row][col];
+              
+                  if (index >= led_min && index < led_max && index != NO_LED &&
+                  keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+                      rgb_matrix_set_color(index, RGB_CORAL);
+                  }
+                  else if (index >= led_min && index < led_max && index != NO_LED &&
+                    keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
+                    rgb_matrix_set_color(index, RGB_BLACK);
+                  }              
+              }
+          }     
+          break;        
+        case U_FUN:             
+          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+            for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+                uint8_t index = g_led_config.matrix_co[row][col];
+            
+                if (index >= led_min && index < led_max && index != NO_LED &&
+                keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+                    rgb_matrix_set_color(index, RGB_YELLOW);
+                }
+                else if (index >= led_min && index < led_max && index != NO_LED &&
+                  keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
+                  rgb_matrix_set_color(index, RGB_BLACK);
+                }             
+            }
+          }     
+          break;        
+        case U_MOUSE:
+        case U_MEDIA:
+        case U_BASE:
+        case U_TAP:
+        case U_BUTTON:
+        default:
+            break;
+    }
+  }
+  return false;
+}
+
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
   [0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(RM_VALD, RM_VALU), ENCODER_CCW_CW(KC_ppRGHT, KC_LEFT), },
