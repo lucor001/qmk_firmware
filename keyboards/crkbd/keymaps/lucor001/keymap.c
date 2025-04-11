@@ -302,7 +302,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
               
                   if (index >= led_min && index < led_max && index != NO_LED &&
                   keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                      rgb_matrix_set_color(index, RGB_CORAL);
+                      rgb_matrix_set_color(index, RGB_ORANGE);
                   }
                   else if (index >= led_min && index < led_max && index != NO_LED &&
                     keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
@@ -327,11 +327,26 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
           }     
           break;        
+        case U_BUTTON:
+          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+            for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+                uint8_t index = g_led_config.matrix_co[row][col];
+            
+                if (index >= led_min && index < led_max && index != NO_LED &&
+                keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+                    rgb_matrix_set_color(index, RGB_PINK);
+                }
+                else if (index >= led_min && index < led_max && index != NO_LED &&
+                  keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
+                  rgb_matrix_set_color(index, RGB_BLACK);
+                }             
+            }
+          }     
+          break;          
         case U_MOUSE:
         case U_MEDIA:
         case U_BASE:
         case U_TAP:
-        case U_BUTTON:
         default:
             break;
     }
