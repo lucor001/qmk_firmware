@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SMTD_GLOBAL_TAP_TERM 200 //(default is TAPPING_TERM) which is 200
 #define SMTD_GLOBAL_FOLLOWING_TAP_TERM 200 //(default is TAPPING_TERM)
 #define SMTD_GLOBAL_SEQUENCE_TERM 100 //(default is TAPPING_TERM / 2)
-#define SMTD_GLOBAL_RELEASE_TERM 15  //(default is TAPPING_TERM / 4)
+#define SMTD_GLOBAL_RELEASE_TERM 10 //(default is TAPPING_TERM / 4)
 
 //#define TAPPING_TERM 100
 // to adjust timings for the home row mods refer to this doc:
