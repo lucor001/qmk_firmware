@@ -263,94 +263,41 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         case U_DVORAK:
           rgb_matrix_set_color(i, RGB_BLUE);
           break;
-        case U_SYM:
-          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-              for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-                  uint8_t index = g_led_config.matrix_co[row][col];
-              
-                  if (index >= led_min && index < led_max && index != NO_LED &&
-                  keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                    rgb_matrix_set_color(index, RGB_GOLDENROD);
-                  }
-                  else if (index >= led_min && index < led_max && index != NO_LED &&
-                    keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
-                    rgb_matrix_set_color(index, RGB_BLACK);
-                  }
-              }
-          }        
-          break;             
         case U_NUM:
-          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-              for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-                  uint8_t index = g_led_config.matrix_co[row][col];
-              
-                  if (index >= led_min && index < led_max && index != NO_LED &&
-                  keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                      rgb_matrix_set_color(index, RGB_SPRINGGREEN);
-                  }
-                  else if (index >= led_min && index < led_max && index != NO_LED &&
-                    keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
-                    rgb_matrix_set_color(index, RGB_BLACK);
-                  }               
-              }
-          }     
-          break;        
+          RGB_MATRIX_INDICATOR_SET_COLOR(0, 255, 255, 255); // Turn Number key white
+          break;
         case U_NAV: 
-          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-              for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-                  uint8_t index = g_led_config.matrix_co[row][col];
-              
-                  if (index >= led_min && index < led_max && index != NO_LED &&
-                  keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                      rgb_matrix_set_color(index, RGB_ORANGE);
-                  }
-                  else if (index >= led_min && index < led_max && index != NO_LED &&
-                    keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
-                    rgb_matrix_set_color(index, RGB_BLACK);
-                  }              
-              }
-          }     
-          break;        
-        case U_FUN:             
-          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-            for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-                uint8_t index = g_led_config.matrix_co[row][col];
-            
-                if (index >= led_min && index < led_max && index != NO_LED &&
-                keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                    rgb_matrix_set_color(index, RGB_YELLOW);
-                }
-                else if (index >= led_min && index < led_max && index != NO_LED &&
-                  keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
-                  rgb_matrix_set_color(index, RGB_BLACK);
-                }             
-            }
-          }     
-          break;        
-        case U_BUTTON:
-          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-            for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-                uint8_t index = g_led_config.matrix_co[row][col];
-            
-                if (index >= led_min && index < led_max && index != NO_LED &&
-                keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                    rgb_matrix_set_color(index, RGB_PINK);
-                }
-                else if (index >= led_min && index < led_max && index != NO_LED &&
-                  keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
-                  rgb_matrix_set_color(index, RGB_BLACK);
-                }             
-            }
-          }     
-          break;          
+          RGB_MATRIX_INDICATOR_SET_COLOR(7, 255, 255, 255); // Turn Number key white
+          break;
+        case U_SYM:
+          RGB_MATRIX_INDICATOR_SET_COLOR(8, 255, 255, 255); // Turn Number key white
+          break;
         case U_MOUSE:
-        case U_MEDIA:
+          RGB_MATRIX_INDICATOR_SET_COLOR(23, 255, 255, 255); // Turn Number key white
+          break;
+        case U_MEDIA: 
+          RGB_MATRIX_INDICATOR_SET_COLOR(30, 255, 255, 255); // Turn Number key white
+          break;
+        case U_FUN:
+          RGB_MATRIX_INDICATOR_SET_COLOR(31, 255, 255, 255); // Turn Number key white
+          break;
+        case U_BUTTON:
+        //NOTE: This layer is implemented by SMTD which means it does not work with Layer Lock (QK_LLCK)
+          RGB_MATRIX_INDICATOR_SET_COLOR(15, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(38, 255, 255, 255); // Turn Number key white
+          break;          
         case U_BASE:
         case U_TAP:
         default:
             break;
     }
   }
+  if (host_keyboard_led_state().caps_lock) {
+    RGB_MATRIX_INDICATOR_SET_COLOR(19, 255, 255, 255); // Turn Caps Lock key white
+  } 
+  if (host_keyboard_led_state().scroll_lock) {
+    RGB_MATRIX_INDICATOR_SET_COLOR(2, 255, 255, 255); // Turn Scroll Lock key white
+  } 
   return false;
 }
 
@@ -424,3 +371,39 @@ bool oled_task_user() {
 }
 
 #endif
+
+// Saving for later, how to change all keys to a specific color when a layer is selected
+//case U_SYM:
+//RGB_MATRIX_INDICATOR_SET_COLOR(8, 255, 255, 255); // Turn Number key white
+////          for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+////              for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+////                  uint8_t index = g_led_config.matrix_co[row][col];
+////              
+////                  if (index >= led_min && index < led_max && index != NO_LED &&
+////                  keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+////                    rgb_matrix_set_color(index, RGB_GOLDENROD);
+////                  }
+////                  else if (index >= led_min && index < led_max && index != NO_LED &&
+////                    keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
+////                    rgb_matrix_set_color(index, RGB_BLACK);
+////                  }
+////              }
+////          }        
+//break;   
+
+//case U_BUTTON:
+//for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+//  for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+//      uint8_t index = g_led_config.matrix_co[row][col];
+//  
+//      if (index >= led_min && index < led_max && index != NO_LED &&
+//      keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+//          rgb_matrix_set_color(index, RGB_PINK);
+//      }
+//      else if (index >= led_min && index < led_max && index != NO_LED &&
+//        keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_NO) {
+//        rgb_matrix_set_color(index, RGB_BLACK);
+//      }             
+//  }
+//}     
+//break;          
