@@ -176,7 +176,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL 
                         LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC), LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
-//Put numbers on right hand
   [U_NUM] = LAYOUT_split_3x6_3_ex2(
    KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA), TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC,    KC_7, KC_8, KC_9, KC_RBRC, KC_BSPC,
    KC_TAB,         CKC_A,          CKC_R,            CKC_S,           CKC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_COLN,    KC_4, KC_5, KC_6,  KC_EQL, KC_QUOT,
@@ -206,25 +205,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         CKC_A,          CKC_R,            CKC_S,           CKC_T,             KC_NO, QK_LOCK, QK_LOCK, CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_QUOT,
    KC_LSFT,         KC_NO,        KC_ALGR, TD(U_TD_U_MEDIA),  TD(U_TD_U_NAV),             KC_NO,                     U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_RSFT,
                                                                        KC_NO,             KC_NO,   KC_NO,  KC_ENT, KC_BSPC,  KC_DEL 
-   ),  
-//  [U_NAV] = LAYOUT_split_3x6_3_ex2(                              
-//   KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA), TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK,   U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_BSPC,
-//   KC_TAB,         CKC_A,          CKC_R,            CKC_S,           CKC_T,             KC_NO, QK_LOCK, QK_LOCK, CW_TOGG, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_QUOT,
-//  KC_LSFT,         KC_NO,        KC_ALGR, TD(U_TD_U_MEDIA),  TD(U_TD_U_NAV),             KC_NO,                    KC_INS, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_RSFT,
-//                                                                      KC_NO,             KC_NO,   KC_NO,  KC_ENT, KC_BSPC,  KC_DEL 
-//  ),
+  ),  
   [U_MOUSE] = LAYOUT_split_3x6_3_ex2(
     KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK,   KC_NO, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U, KC_BSPC,
     KC_TAB,         CKC_A,          CKC_R,            CKC_S,            CKC_T,             KC_NO, QK_LOCK, QK_LOCK,   KC_NO, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, KC_QUOT,
    KC_LSFT,         KC_NO,        KC_ALGR,   TD(U_TD_U_NUM), TD(U_TD_U_MOUSE),             KC_NO,                     U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_RSFT,
                                                                       KC_BTN3,           KC_BTN1, KC_BTN2,   KC_NO,   KC_NO,   KC_NO 
   ),
-//  [U_MOUSE] = LAYOUT_split_3x6_3_ex2(
-//    KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK,   U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_BSPC,
-//    KC_TAB,         CKC_A,          CKC_R,            CKC_S,            CKC_T,             KC_NO, QK_LOCK, QK_LOCK,   KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_QUOT,
-//   KC_LSFT,         KC_NO,        KC_ALGR,   TD(U_TD_U_NUM), TD(U_TD_U_MOUSE),             KC_NO,                     KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_RSFT,
-//                                                                      KC_BTN3,           KC_BTN1, KC_BTN2,   KC_NO,   KC_NO,   KC_NO 
-//  ),
   [U_EXTRA] = LAYOUT_split_3x6_3_ex2(
    KC_ESC,  KC_Q,   KC_W,  KC_E,    KC_R,    KC_T, QK_LLCK, QK_LLCK,     KC_Y,    KC_U,    KC_I,    KC_O,     KC_P, KC_BSPC,
    KC_TAB, CKC_A, CKC_SE, CKC_D,   CKC_F,    KC_G, QK_LOCK, QK_LOCK,     KC_H,   CKC_J,   CKC_K,   CKC_L, CKC_SCLN, KC_QUOT,
@@ -250,7 +237,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_LSFT, CKC_SCLND,  CKC_QD,   KC_J,    KC_K,    KC_X,                       KC_B,    KC_M,   KC_W, CKC_VD, CKC_ZD, KC_RSFT,
 //                                        CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL 
                                LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
- ), 
+  ), 
 };
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
