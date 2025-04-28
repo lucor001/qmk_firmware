@@ -170,11 +170,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //COLMAK-DH layout with home row special keys
     //Expanded Miryoku for this keyboard, adds outside columns and 4 keys in the middle
   [U_BASE] = LAYOUT_split_3x6_3_ex2(
-   KC_ESC,  KC_Q,   KC_W,  KC_F,    KC_P,    KC_B, QK_LLCK, QK_LLCK,     KC_J,    KC_L,    KC_U,    KC_Y,  KC_SCLN, KC_BSPC,
-   KC_TAB, CKC_A,  CKC_R, CKC_S,   CKC_T,    KC_G, QK_LOCK, QK_LOCK,     KC_M,   CKC_N,   CKC_E,   CKC_I,    CKC_O, KC_QUOT,
-  KC_LSFT, CKC_Z,  CKC_X,  KC_C,    KC_D,    KC_V,                       KC_K,    KC_H, KC_COMM, CKC_DOT, CKC_SLSH, KC_RSFT,
+   KC_ESC,  KC_Q,   KC_W,  KC_F,    KC_P,             KC_B,          QK_LLCK,            QK_LLCK,                KC_J,             KC_L,    KC_U,    KC_Y,  KC_SCLN, KC_BSPC,
+   KC_TAB, CKC_A,  CKC_R, CKC_S,   CKC_T,             KC_G,          QK_LOCK,            QK_LOCK,                KC_M,            CKC_N,   CKC_E,   CKC_I,    CKC_O, KC_QUOT,
+  KC_LSFT, CKC_Z,  CKC_X,  KC_C,    KC_D,             KC_V,                                                      KC_K,             KC_H, KC_COMM, CKC_DOT, CKC_SLSH, KC_RSFT,
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL 
-                        LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
+                        LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC), LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
 //Put numbers on right hand
   [U_NUM] = LAYOUT_split_3x6_3_ex2(
